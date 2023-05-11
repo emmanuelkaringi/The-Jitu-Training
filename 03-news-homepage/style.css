@@ -173,7 +173,7 @@ p {
 
     .showcase {
         display: flex;
-        gap: 25px;
+        gap: 20px;
     }
 
     .showcase h1 {
@@ -190,6 +190,7 @@ p {
 
     .showcase > div:last-child {
         margin-top: 0;
+        padding: 1rem 1.5rem;
     }
 
     .cards {
