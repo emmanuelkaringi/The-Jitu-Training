@@ -1,8 +1,8 @@
 //1. Get the current date dd-mm-yyyy, dd/mm/yyyy
-// var today = new Date();
-// var dd = today.getDate();
-// var mm = today.getMonth()+1; 
-// var yyyy = today.getFullYear();
+// let today = new Date();
+// let dd = today.getDate();
+// let mm = today.getMonth()+1; 
+// let yyyy = today.getFullYear();
 
 // if(dd<10) 
 // {
@@ -33,8 +33,8 @@
 
 //3. Find the closest value to 100 from two numerical values
 // function nearest(a, b) {
-//     var num1 = 100-a
-//     var num2 = 100-b
+//     let num1 = 100-a
+//     let num2 = 100-b
     
 //     if(num1 > num2) {
 //       return b + " is nearest to 100"
