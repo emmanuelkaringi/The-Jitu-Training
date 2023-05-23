@@ -24,6 +24,12 @@ let cartData = [];
 document.addEventListener("DOMContentLoaded", function () {
     const productsContainer = document.querySelector(".products");
 
+    const storedCartData = localStorage.getItem("cartData");
+    if (storedCartData) {
+        cartData = JSON.parse(storedCartData);
+        updateCart();
+    }
+
     async function fetchProducts(url) {
         try {
             const response = await fetch(url);
@@ -52,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p class="product-description">${description}</p>
                         <div class="product-price-counter">
                             <h3 class="product-price">Ksh.${price}</h3>
-                            <button class="add-to-cart" onclick="addToCart(${id}, ${price})">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addToCart(${id}, '${title}', ${price}, '${image}')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -85,31 +91,41 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchProducts("https://fakestoreapi.com/products");
 });
 
-function addToCart(id, price) {
+function addToCart(id, title, price, image) {
     const cartItem = {
         id,
+        title,
         price,
+        image
     };
     cartData.push(cartItem);
     updateCart();
+
+    saveCartData();
 }
 
 function removeFromCart(index) {
     cartData.splice(index, 1);
     updateCart();
+
+    saveCartData();
+}
+
+function saveCartData() {
+    localStorage.setItem("cartData", JSON.stringify(cartData));
 }
 
 function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
     for (let i = 0; i < cartData.length; i++) {
-        const { id, price } = cartData[i];
+        const { id, title, price, image } = cartData[i];
         const cartItem = document.createElement("li");
         cartItem.classList.add("cart-item");
         cartItem.innerHTML = `
-            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Product Image">
+            <img src="${image}" alt="Product Image">
             <div>
-                <h4 class="cart-item-title">Product Title</h4>
+                <h4 class="cart-item-title">${title}</h4>
                 <p class="cart-item-price">Ksh.${price}</p>
             </div>
             <button onclick="removeFromCart(${i})">Remove</button>
@@ -117,5 +133,5 @@ function updateCart() {
         cartItems.appendChild(cartItem);
         total += price;
     }
-    cartTotal.textContent = total;
+    cartTotal.textContent = "Kshs." + total;
 }
