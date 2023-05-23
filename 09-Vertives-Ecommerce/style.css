@@ -155,7 +155,7 @@ select:focus{
 .products {
     padding: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
 }
 
@@ -175,7 +175,7 @@ select:focus{
 
 .product img {
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-position: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -190,6 +190,7 @@ select:focus{
 }
 
 .product-category{
+    text-transform: capitalize;
     color: #315C72;
 }
 .product-description {
@@ -204,26 +205,36 @@ select:focus{
     margin: 1rem 0;
 }
 
+.product-price-counter {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .product-price {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #315C72;
 }
 
 .add-to-cart {
+    display: block;
+    margin: .5em;
+    padding: .5em;
     background-color: #BCDCC4;
     color: #151515;
-    border: none;
     border-radius: 5px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    border: none;
+    outline: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3 ease-in-outs;
 }
 
 .add-to-cart:hover {
     background-color: #563434;
     color: #fff;
 }
+
 
 /* Cart styles */
 #cart {
@@ -309,6 +320,48 @@ select:focus{
     display: none;
 }
 
+#clear-cart-button {
+    margin: .5em;
+    padding: .5em;
+    background-color: #BCDCC4;
+    color: #151515;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3 ease-in-outs;
+}
+
+#clear-cart-button:hover {
+    background-color: #563434;
+    color: #fff;
+}
+
+.cart-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #BCDCC4;
+    color: #151515;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media only screen and (max-width: 800px) {
     nav ul {
         position: absolute;
@@ -341,9 +394,7 @@ select:focus{
         text-align: center;
     }
 
-    .col-2,
-    .col-3,
-    .col-4 {
+    .col-2{
         flex-basis: 100%;
     }
 }

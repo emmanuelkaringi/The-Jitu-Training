@@ -102,6 +102,15 @@ function addToCart(id, title, price, image) {
     updateCart();
 
     saveCartData();
+
+     // Show alert
+     const alert = document.createElement("div");
+     alert.classList.add("cart-alert");
+     alert.textContent = "Item added to cart!";
+     document.body.appendChild(alert);
+     setTimeout(function() {
+         alert.remove();
+     }, 2000);
 }
 
 function removeFromCart(index) {
@@ -134,4 +143,10 @@ function updateCart() {
         total += price;
     }
     cartTotal.textContent = "Kshs." + total;
+}
+
+function clearCart() {
+    cartData = [];
+    updateCart();
+    saveCartData();
 }
