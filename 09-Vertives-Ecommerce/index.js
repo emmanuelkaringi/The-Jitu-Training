@@ -127,6 +127,7 @@ function saveCartData() {
 function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
+    let count = 0;
     for (let i = 0; i < cartData.length; i++) {
         const { id, title, price, image } = cartData[i];
         const cartItem = document.createElement("li");
@@ -141,8 +142,10 @@ function updateCart() {
         `;
         cartItems.appendChild(cartItem);
         total += price;
+        count += 1;
     }
-    cartTotal.textContent = "Kshs." + total;
+    cartTotal.textContent = "Kshs." + total.toFixed(0);
+    document.getElementById("cart-count").textContent = count;
 }
 
 function clearCart() {

@@ -206,7 +206,7 @@ select:focus{
 }
 
 .product-price-counter {
-    padding-top: 2rem;
+    padding-top: .5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -350,6 +350,19 @@ select:focus{
     opacity: 0;
     animation: fade-in 0.3s ease-in-out forwards;
 }
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    background-color: #315C72;
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 50%;
+  }
 
 @keyframes fade-in {
     0% {
