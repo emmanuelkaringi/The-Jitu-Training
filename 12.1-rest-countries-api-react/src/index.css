@@ -97,11 +97,24 @@ body.light-theme {
 header.light-theme {
   background-color: var(--light-mode-background);
   color: var(--light-mode-text);
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+
+.btn-moon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-moon i {
+  padding-right: 5px;
 }
 
 .header i {
   cursor: pointer;
 }
+
 
 /* Form component */
 .form {

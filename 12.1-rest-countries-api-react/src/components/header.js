@@ -24,9 +24,8 @@ const Header = () => {
         </div>
 
         <div>
-          <button className="btn-moon" onClick={() => changeTheme()}>
-            <i className="fas fa-moon"></i>
-          </button>
+        <button className="btn-moon" onClick={() => changeTheme()}><i className="fa-solid fa-moon"></i> Dark Mode</button>
+         
         </div>
       </header>
     </div>

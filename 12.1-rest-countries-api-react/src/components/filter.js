@@ -70,7 +70,6 @@ const Filter = ({
 
   useEffect(() => {
     filterRegions("All");
-    // eslint-disable-next-line
   }, []);
 
   return (

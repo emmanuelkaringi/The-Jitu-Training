@@ -49,24 +49,24 @@ const Countries = () => {
               const { ccn3, name, flags, population, region, capital } = country;
 
               return (
-                <Link to={`/countries/${name}`} key={`${ccn3}-${index}`}>
+                <Link to={`/${name.common}`} key={`${name.common}`}>
                   <article>
                     <div className="flag">
                       <img src={flags?.svg} alt={name?.common} />
                     </div>
                     <div className="details">
-                      <h4 className="country-name">
-                        Name: <span>{name?.common}</span>
-                      </h4>
-                      <h4>
-                        Population: <span>{population?.toLocaleString()}</span>
-                      </h4>
-                      <h4>
-                        Region: <span>{region}</span>
-                      </h4>
-                      <h4>
-                        Capital: <span>{capital}</span>
-                      </h4>
+                      <h3 className="country-name">
+                        <span>{name?.common}</span>
+                      </h3>
+                      <p>
+                        <span> Population: </span>{population?.toLocaleString()}
+                      </p>
+                      <p>
+                        <span>Region: </span>{region}
+                      </p>
+                      <p>
+                        <span>Capital: </span>{capital}
+                      </p>
                     </div>
                   </article>
                 </Link>
@@ -83,7 +83,7 @@ const Countries = () => {
               const { ccn3, name, flags, population, region, capital } = country;
 
               return (
-                <Link to={`/countries/${name}`} key={`${ccn3}-${index}`}>
+                <Link to={`/${name}`} key={`${name.common}`}>
                   <article>
                     <div className="flag">
                       <img src={flags?.svg} alt={name?.common} />
@@ -116,56 +116,3 @@ const Countries = () => {
 };
 
 export default Countries;
-
-
-
-
-
-// import React, {useState, useEffect} from 'react'
-
-// const url = 'https://restcountries.com/v3.1/all'
-
-// const Countries = () => {
-//     const [countries, setCountries] = useState([])
-
-//     const fetchCountryData = async() => {
-//         const response = await fetch(url)
-//         const countries = await response.json()
-//         setCountries(countries)
-//         console.log(countries)
-//     }
-
-//     useEffect(() => {
-//         fetchCountryData()
-//     }, [])
-
-  
-  
-//     return (
-//         <section className="countries">
-//             {countries.map((country, index) => {
-//                 const { ccn3, name, population, region, capital, flags } = country
-
-//                 return (
-//                 <article key={`${ccn3}-${index}`}>
-//                     <div>
-//                         <div className="flag">
-//                         <img src={flags.svg} alt="" />
-//                         </div>
-//                         <div className="details">
-//                             <div className="country-name">
-//                             <h3><span>{name.common}</span></h3>
-//                             </div>
-//                         <h4>Population: <span>{population}</span></h4>
-//                         <h4>Region: <span>{region}</span></h4>
-//                         <h4>Capital: <span>{capital}</span></h4>
-//                         </div>
-//                     </div>
-//                 </article>
-//                 )
-//             })}
-//         </section>
-//     )
-// }
-
-// export default Countries
